@@ -32,4 +32,11 @@ class Linter
       end
     end
   end
+  
+  def no_extra_semicolons(lines, errorArr)
+    lines.each_with_index do |line, index|
+        errorArr << "Extra semicolons found on line: #{index + 1}" if line.count(";") != 1
+      end
+    end
+  end
 end
