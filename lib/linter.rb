@@ -16,4 +16,12 @@ class Linter
       end
     end
   end
+  
+  def trailing_space(lines, errorArr)
+    lines.each_with_index do |line, index|
+      if line.end_with?("; \n")
+        errorArr << "Trailing space found on line: #{index + 1}" 
+      end
+    end
+  end
 end
