@@ -24,4 +24,12 @@ class Linter
       end
     end
   end
+  
+  def length_Zero_no_Unit(lines, errorArr)
+    lines.each_with_index do |line, index|
+      if line.include?(";")
+        errorArr << "Zero values do not need units on line: #{index + 1}" if line.match(/[0](\w|%)/) 
+      end
+    end
+  end
 end
