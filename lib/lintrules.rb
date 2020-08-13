@@ -1,7 +1,7 @@
 class LintRules
   def block_indentation(lines, errorArr)
     lines.each_with_index do |line, index|
-      if line.include?(':')
+      if line.include?('{\n')
         errorArr << "Expected indentation of 2 spaces on line #{index + 1}" unless line.match(/^\s{2}[a-zA-Z]/)
       end
     end
@@ -30,7 +30,7 @@ class LintRules
   def length_Zero_no_Unit(lines, errorArr)
     lines.each_with_index do |line, index|
       if line.include?(";")
-        errorArr << "Zero values do not need units on line: #{index + 1}" if line.match(/[0](\w|%)/) 
+        errorArr << "Zero values do not need units on line: #{index + 1}" if line.match(/[\s](0\w|0%)/) 
       end
     end
     errorArr
@@ -38,10 +38,16 @@ class LintRules
   
   def no_extra_semicolons(lines, errorArr)
     lines.each_with_index do |line, index|
-        errorArr << "Extra semicolons found on line: #{index + 1}" if line.count(";") != 1
+        errorArr << "Extra semicolons found on line: #{index + 1}" if line.match(/;{2,}/) 
       end
-    end
     errorArr
   end
+  
+  def no_empty_rule (lines, errorArr)
+    lines.each_with_index do |line, index|
+      errorArr << "Unexpected empty block: #{index + 1}" if line.match(/{\n*}/) 
+    end
+  errorArr
+end
     
 end
