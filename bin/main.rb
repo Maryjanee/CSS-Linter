@@ -1,2 +1,12 @@
-#!/usr/bin/env ruby
-puts "Hello World!"
+require 'colorize'
+require_relative '../lib/lintrules.rb'
+require_relative '../lib/linter.rb'
+
+file = File.open(ARGV[0]).to_a
+errors = Linter.lintcheck(file)
+
+if errors.empty?
+  puts 'file checked , no errors found '.green
+else
+  errors.each { |error| puts error.red }
+end
