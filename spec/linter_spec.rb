@@ -10,6 +10,7 @@ describe 'LintRules' do
   let(:not_indented_code) { ['.btn {','padding: 0;', '  margin: 0;', '}'] }
   let(:trailing_space_rule) { ['p {', 'padding: 0;   ', 'margin: 0px;  ', '}'] }
   let(:one_trailing_space) { ['p {', 'padding: 0;   ', 'margin: 0px;', '}'] }
+  let(:empty_rule) { ['p {}'] }
   let(:errors) { [] }
   
   describe '#block_indentation' do
@@ -48,4 +49,21 @@ describe 'LintRules' do
       expect(subject.length_zero_no_unit(zero_unit_rule, errors)).not_to eql([])
     end
   end
+  
+  describe '#no_empty_rule' do
+    it 'should return an empty array when a rule has content' do
+      expect(subject.no_empty_rule(zero_unit_rule, errors)).to eql([])
+    end
+
+    it 'should not return an empty array when an empty rule' do
+      expect(subject.no_empty_rule(empty_rule, errors)).not_to eql([])
+    end
+    
+    it 'should not return an empty array when an empty rule' do
+      expect(subject.no_empty_rule(empty_rule, errors)).to eql(["Unexpected empty block: 1"])
+    end
+    
+  end
+  
+  # no_empty_rule
 end
