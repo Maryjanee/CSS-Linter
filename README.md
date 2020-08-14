@@ -15,8 +15,8 @@
 
 
 ## ✒️ About <a name = "about"></a>
-<h3 align="center">
-This is a css linter that helps you avoid errors and enforce conventions in your styles.</h3>
+<p align="center">
+This is a css linter that helps you avoid errors and enforce conventions in your styles.</p>
 
 ![Screenshot Showing Linter Errors](assets/linter.png)
 ---
@@ -54,8 +54,8 @@ ruby bin/main.rb badcss.css
 ## Testing Instructions <a name = "testing"></a>
 
 - Clone the repository
-- Change directory to the cloned directory `cd Tic-Tac-Toe `
-- Switch to test branch `git checkout testing-branch`
+- Change directory to the cloned directory `cd CSS-Linter `
+- Switch to test branch `git checkout linter`
 - Run `bundle install` to install the dependencies specified in the Gemfile
 - Run `rspec` to test
 
@@ -136,8 +136,7 @@ p {
 - create a new branch.
 - Push your code to your origin repository.
 - Create a new Pull Request .
-
-Feel free to check the [issues page](https://github.com/Maryjanee/CSS-Linter/issuess).
+- Feel free to check the [issues page](https://github.com/Maryjanee/CSS-Linter/issuess).
 
 ## 👍 Show your support
 
