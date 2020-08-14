@@ -8,22 +8,45 @@ describe 'LintRules' do
   let(:indented_code) { ['.btn {','  padding: 0;',   '  margin: 0;', '}'] }
   let(:multiple_colons) { ['.btn {','  padding: 0;;','margin: 0;;', '}'] }
   let(:not_indented_code) { ['.btn {','padding: 0;', '  margin: 0;', '}'] }
-  let(:trailing_space_rule) { ['p {', 'padding: 0;   ', 'margin: 0px;  ', '}'] }
-  let(:one_trailing_space) { ['p {', 'padding: 0;   ', 'margin: 0px;', '}'] }
+  let(:trailing_space_rule) { ['p {', 'padding: 0;   ', 'margin: 0;  ', '}'] }
+  let(:one_trailing_space) { ['p {', 'padding: 0;   ', 'margin: 0;', '}'] }
+  let(:no_block_space) { ['p{', '  padding: 0;', '  margin: 0;', '}'] }
   let(:empty_rule) { ['p {}'] }
   let(:errors) { [] }
   
   describe '#block_indentation' do
-    it 'should return an array with error message when zero units are found on the line' do
+    it 'should return an empty array when a line is properly indented' do
       expect(subject.block_indentation(indented_code, errors)).to eql([])
     end
-    it 'should return an array with error message when zero units are found on the line' do
+    it 'should return an array with error message on line not properly indented' do
       expect(subject.block_indentation(not_indented_code, errors)).to eql(["Expected indentation of 2 spaces on line 2"])
     end
-    it 'should return an array with error message when zero units are found on the line' do
+    it 'should not return an array when a line is not properly indented' do
       expect(subject.block_indentation(zero_unit_rule, errors)).not_to be([])
     end
   end
+  
+  # describe '#block_opening_brace_space_before' do
+  #   it 'should return an empty array when space is found before the opening block' do
+  #     expect(subject.block_opening_brace_space_before(indented_code, errors)).to eql([])
+  #   end
+  #   it 'should return an message with line number when no space is found before the opening block' do
+  #     expect(subject.block_opening_brace_space_before(no_block_space, errors)).to eql(["Expect space before opening brace on 2"])
+  #   end     
+  # end
+  
+  describe '#trailing_space' do
+      it 'should return an array with message where a trailing space is found' do
+        expect(subject.trailing_space(one_trailing_space, errors)).to eql(["Trailing space found on line: 2"])
+      end
+      it 'should return an array with message for lines where a trailing space is found' do
+        expect(subject.trailing_space(trailing_space_rule, errors)).to eql(["Trailing space found on line: 2", "Trailing space found on line: 3"])
+      end
+      it 'should not return an array with message for lines whereno trailing space is found' do
+        expect(subject.trailing_space(zero_unit_rule, errors)).not_to be(["Trailing space found on line: 2", "Trailing space found on line: 3"])
+      end  
+    end
+  
   
   describe '#no_extra_semicolons' do
     it 'should return messages on lines where extra semicolons are added' do
@@ -63,7 +86,6 @@ describe 'LintRules' do
       expect(subject.no_empty_rule(empty_rule, errors)).to eql(["Unexpected empty block: 1"])
     end
     
-  end
-  
-  # no_empty_rule
+  end  
+
 end
