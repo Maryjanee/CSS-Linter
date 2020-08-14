@@ -10,8 +10,17 @@ class LintRules
 
   def block_opening_brace_space_before(lines, error)
     lines.each_with_index do |line, index|
-      if line.include?("{\n")
-        error << "Expect space before opening brace on #{index + 1}" if line.match(/(^.|^#)(\w*)(, (\.)*\w+)*(, (\#)*\w+)*(\{\n)/)
+      if line.include?("{")
+        error << "Expect space before opening brace on #{index + 1}" if line.match(/([a-zA-Z]+|\]|\)){/)
+      end
+    end
+    error
+  end
+  /:[a-zA-Z0-9]+/
+  def declaration_colon_space_after(lines, error)
+    lines.each_with_index do |line, index|
+      if line.include?(";")
+        error << "Expected single space after ':' with a single-line declaration  on line :#{index + 1}" if line.match(/:[a-zA-Z0-9]+/)
       end
     end
     error
