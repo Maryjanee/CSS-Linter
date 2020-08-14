@@ -3,17 +3,17 @@ li {
   list-style: none;;
 }
 
-body {
+body{
 background: var(--grey-body);
   font-style: 0px; 
 }
 
-label {
+label{
 display: block;;
-  margin-bottom: 0.5rem;
+  margin-bottom:0.5rem;
 }
 
-input {
+input{
 width: 100%;
   padding: 0.7rem 1.2rem;
   border: 1px solid #c1c5c8;
@@ -31,6 +31,7 @@ footer {}
 
 .lock-icon {
   width: 0%;
-margin-right: 0.3rem;
+margin-right:0.3rem;
 }
 
+@media (min-width: 40rem){}
