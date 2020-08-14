@@ -11,18 +11,20 @@ class LintRules
   def block_opening_brace_space_before(lines, error)
     lines.each_with_index do |line, index|
       if line.include?("{\n")
-        error << "Expect space before opening brace on #{index + 1}" if line.match(/(^.|^#)(\w+)(, (\.)*\w+)*(, (\#)*\w+)*(\{\n)/)
+        error << "Expect space before opening brace on #{index + 1}" if line.match(/(^.|^#)(\w*)(, (\.)*\w+)*(, (\#)*\w+)*(\{\n)/)
       end
     end
     error
   end
 
-  # def trailing_space(lines, error)
-  #   lines.each_with_index do |line, index|
-  #     error << "Trailing space found on line: #{index + 1}" if line.match("; \n")
-  #   end
-  #   error
-  # end
+  def trailing_space(lines, error)
+    lines.each_with_index do |line, index|
+      if line.include?(';')
+        error << "Trailing space found on line: #{index + 1}" if line.match(/; {1,}$/)
+      end
+    end
+    error
+  end
 
   def length_zero_no_unit(lines, error)
     lines.each_with_index do |line, index|
