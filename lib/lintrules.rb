@@ -1,3 +1,4 @@
+# rubocop:disable Lint/Void
 class LintRules
   def block_indentation(lines, error)
     lines.each_with_index do |line, index|
@@ -8,9 +9,9 @@ class LintRules
     error
   end
 
-  def block_opening_brace_space_before(lines, error)
+  def block_opening_brace_space(lines, error)
     lines.each_with_index do |line, index|
-      if line.include?("{")
+      if line.include?('{')
         error << "Expect space before opening brace on #{index + 1}" if line.match(/([a-zA-Z]+|\]|\)){/)
       end
     end
@@ -19,9 +20,9 @@ class LintRules
   /:[a-zA-Z0-9]+/
   def declaration_colon_space_after(lines, error)
     lines.each_with_index do |line, index|
-      if line.include?(";")
-        error << "Expected single space after ':' with a single-line declaration  on line :#{index + 1}" if line.match(/:[a-zA-Z0-9]+/)
-      end
+      next unless line.include?(';')
+
+      error << "Expected single space after ':' on :#{index + 1}" if line.match(/:[a-zA-Z0-9]+/)
     end
     error
   end
@@ -58,3 +59,5 @@ class LintRules
     error
   end
 end
+
+# rubocop:enable Lint/Void
