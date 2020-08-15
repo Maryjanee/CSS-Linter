@@ -35,55 +35,55 @@ This is a css linter that helps you avoid errors and enforce conventions in your
 - Ruby installed on local machine. Check [this](https://www.ruby-lang.org/en/documentation/installation/) for Installation Guide
 
 
-- Rubocop Linter installed on Machine
+#### Rubocop Linter installed on Machine
 
-      Install Using this command:
+    Install Using this command:
     ```
     gem install rubocop
 
     ```
 
-- Rspec for testing  installed on Machine
+#### Rspec for testing  installed on Machine
 
-  Install Using this command:
-```
-gem install rspec
+    Install Using this command:
+    ```
+    gem install rspec
 
-```
+    ```
 
-- Colorize Gem installed on Machine
+#### Colorize Gem installed on Machine
 
- Install Using this command:
-```
-gem install colorize
+    Install Using this command:
+    ```
+    gem install colorize
 
-```
+    ```
 
 
 ## Usage
 
-Clone this repository 
-```
-git clone git@github.com:Maryjanee/CSS-Linter.git
-```
-```
-cd CSS-Linter
-```
+#### Clone this repository 
+      ```
+      git clone git@github.com:Maryjanee/CSS-Linter.git
+      ```
+      ```
+      cd CSS-Linter
+      ```
 
-Type in the following command to run the linter on a css file in the folder
-```
-ruby bin/main.rb badcss.css
+  Type in the following command to run the linter on a css file in the folder
+    ```
+    ruby bin/main.rb css/badcss.css
 
-```
+    ```
 
 
 ## Testing Instructions <a name = "testing"></a>
 
-- Clone the repository
-- Change directory to the cloned directory `cd CSS-Linter `
-- Switch to test branch `git checkout linter`
-- Run `bundle install` to install the dependencies specified in the Gemfile
-- Run `rspec` to test
+  - Clone the repository
+  - Change directory to the cloned directory `cd CSS-Linter `
+  - Switch to test branch `git checkout linter`
+  - Run `bundle install` to install the dependencies specified in the Gemfile
+  - Run `rspec` to test
 
 
 ## Style Guide <a name = "styleguide"></a>
