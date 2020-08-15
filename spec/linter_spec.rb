@@ -4,7 +4,7 @@ describe 'LintRules' do
   let(:subject) { LintRules.new }
   let(:zunit) { ['p {', 'padding: 0;', 'margin: 0px;', '}'] }
   let(:no_zunit) { ['h1 {', 'padding: 0;', 'margin: 0;', '}'] }
-  let(:indent) { ['.btn {', '  padding: 0;', '  margin: 0;', '}'] } 
+  let(:indent) { ['.btn {', '  padding: 0;', '  margin: 0;', '}'] }
   let(:multiple_colons) { ['.btn {', '  padding: 0;;', 'margin: 0;', '}'] }
   let(:nindent) { ['.btn {', 'padding: 0;', '  margin: 0;', '}'] }
   let(:trailing_space) { ['p {', 'padding: 0;', 'margin: 0;  ', '}'] }

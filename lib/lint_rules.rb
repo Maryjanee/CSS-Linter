@@ -18,7 +18,7 @@ class LintRules
     error
   end
   /:[a-zA-Z0-9]+/
-  
+
   def declaration_colon_space_after(lines, error)
     lines.each_with_index do |line, index|
       next unless line.include?(';')
