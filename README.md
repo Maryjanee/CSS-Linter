@@ -34,6 +34,32 @@ This is a css linter that helps you avoid errors and enforce conventions in your
 
 - Ruby installed on local machine. Check [this](https://www.ruby-lang.org/en/documentation/installation/) for Installation Guide
 
+
+- Rubocop Linter installed on Machine
+
+  Install Using this command:
+```
+gem install rubocop
+
+```
+
+- Rspec for testing  installed on Machine
+
+  Install Using this command:
+```
+gem install rspec
+
+```
+
+- Colorize Gem installed on Machine
+
+ Install Using this command:
+```
+gem install colorize
+
+```
+
+
 ### Usage
 
 Clone this repository 
@@ -65,59 +91,126 @@ ruby bin/main.rb badcss.css
 
 <p> This Linter Enforces rules for the following </p>
 
-#### - Block Indentation
+## 1. Block Indentation
     Checks for 2 space indentation of rules in a block
 
-```
-# Bad Code
- p {
- padding:1rem;
- border-radius:50%  
- }
+      ```
+      # Bad Code
+      p {
+      padding: 1rem;
+      border-radius: 50%  
+      }
 
 
 
-# Good Code
-p {
-   padding:1rem;
-   border-radius:50%  
- }
-```
+      # Good Code
+      p {
+        padding: 1rem;
+        border-radius: 50%  
+      }
+      ```
 
-#### - No Empty Block Rule
+## 2. No Empty Block Rule
     Check for empty block rule and flags appropriately
 
-```
-# Bad Code
- div{}
+      ```
+      # Bad Code
+      div{}
 
 
-# Good Code
-div {
-   background:green;
-   border-radius:50%  
- }
-```
+      # Good Code
+      div {
+        background: green;
+        border-radius: 50%  
+      }
+      ```
 
-#### - Length Zero Should Take No Unit
+## 3. Length Zero Should Take No Unit
     Checks that length of zero takes no unit
 
-```
-# Bad Code
- p {
-    padding: 0% ;
- }
+      ```
+      # Bad Code
+      p {
+          padding: 0% ;
+      }
 
 
 
-# Good Code
-p {
-   padding:0; 
- }
-```
+      # Good Code
+      p {
+        padding:0; 
+      }
+      ```
+
+## 4. Space before block opening brace 
+      Checks that a space is added before the opening brace of a block
+
+      ```
+      # Bad Code
+      a{
+          display: block
+          border: 2px solid green;
+      }
 
 
 
+      # Good Code
+      a {
+          display: block
+          border: 2px solid green;
+      }
+      ```
+      
+## 5. No Extra semi-colons added
+      Checks that the end of a rule only contains one semi colon
+
+      ```
+      # Bad Code
+      button{
+          padding: 1rem 1.5rem;;
+      }
+
+
+
+      # Good Code
+      button{
+          padding: 1rem 1.5rem;
+      }
+
+      ```
+      
+## 6. Declaration Colon space After
+      Checks that declaration takes a space after before the value
+
+      ```
+      # Bad Code
+      footer {
+         background:#eee;
+      }
+
+
+
+      # Good Code
+       footer {
+         background: #eee;
+      }
+      ```
+      
+## 7. No trailing spaces
+      Checks that there are no trailing spaces after a rule
+
+      ```
+      # Bad Code
+      p {
+          color: grey ; | 
+      }
+
+
+      # Good Code
+       p {
+          color: grey ;
+      }
+      ```
 
 ## ✒️ Author <a name = "author"></a>
 
