@@ -37,11 +37,11 @@ This is a css linter that helps you avoid errors and enforce conventions in your
 
 - Rubocop Linter installed on Machine
 
-  Install Using this command:
-```
-gem install rubocop
+      Install Using this command:
+    ```
+    gem install rubocop
 
-```
+    ```
 
 - Rspec for testing  installed on Machine
 
@@ -60,7 +60,7 @@ gem install colorize
 ```
 
 
-### Usage
+## Usage
 
 Clone this repository 
 ```
@@ -86,12 +86,12 @@ ruby bin/main.rb badcss.css
 - Run `rspec` to test
 
 
-# Style Guide <a name = "styleguide"></a>
+## Style Guide <a name = "styleguide"></a>
 
 
 <p> This Linter Enforces rules for the following </p>
 
-## 1. Block Indentation
+### 1. Block Indentation
     Checks for 2 space indentation of rules in a block
 
       ```
@@ -110,107 +110,107 @@ ruby bin/main.rb badcss.css
       }
       ```
 
-## 2. No Empty Block Rule
-    Check for empty block rule and flags appropriately
+### 2. No Empty Block Rule
+      Check for empty block rule and flags appropriately
 
-      ```
-      # Bad Code
-      div{}
-
-
-      # Good Code
-      div {
-        background: green;
-        border-radius: 50%  
-      }
-      ```
-
-## 3. Length Zero Should Take No Unit
-    Checks that length of zero takes no unit
-
-      ```
-      # Bad Code
-      p {
-          padding: 0% ;
-      }
+        ```
+        # Bad Code
+        div{}
 
 
+        # Good Code
+        div {
+          background: green;
+          border-radius: 50%  
+        }
+        ```
 
-      # Good Code
-      p {
-        padding:0; 
-      }
-      ```
+### 3. Length Zero Should Take No Unit
+       Checks that length of zero takes no unit
 
-## 4. Space before block opening brace 
-      Checks that a space is added before the opening brace of a block
-
-      ```
-      # Bad Code
-      a{
-          display: block
-          border: 2px solid green;
-      }
+        ```
+        # Bad Code
+        p {
+            padding: 0% ;
+        }
 
 
 
-      # Good Code
-      a {
-          display: block
-          border: 2px solid green;
-      }
-      ```
+        # Good Code
+        p {
+          padding:0; 
+        }
+        ```
+
+### 4. Space before block opening brace 
+        Checks that a space is added before the opening brace of a block
+
+        ```
+        # Bad Code
+        a{
+            display: block
+            border: 2px solid green;
+        }
+
+
+
+        # Good Code
+        a {
+            display: block
+            border: 2px solid green;
+        }
+        ```
       
-## 5. No Extra semi-colons added
-      Checks that the end of a rule only contains one semi colon
+### 5. No Extra semi-colons added
+        Checks that the end of a rule only contains one semi colon
 
-      ```
-      # Bad Code
-      button{
-          padding: 1rem 1.5rem;;
-      }
+        ```
+        # Bad Code
+        button{
+            padding: 1rem 1.5rem;;
+        }
 
 
 
-      # Good Code
-      button{
-          padding: 1rem 1.5rem;
-      }
+        # Good Code
+        button{
+            padding: 1rem 1.5rem;
+        }
 
-      ```
+        ```
       
-## 6. Declaration Colon space After
-      Checks that declaration takes a space after before the value
+### 6. Declaration Colon space After
+       Checks that declaration takes a space after before the value
 
-      ```
-      # Bad Code
-      footer {
-         background:#eee;
-      }
+        ```
+        # Bad Code
+        footer {
+          background:#eee;
+        }
 
 
 
-      # Good Code
-       footer {
-         background: #eee;
-      }
-      ```
+        # Good Code
+        footer {
+          background: #eee;
+        }
+        ```
       
-## 7. No trailing spaces
-      Checks that there are no trailing spaces after a rule
+### 7. No trailing spaces
+       Checks that there are no trailing spaces after a rule
 
-      ```
-      # Bad Code
-      p {
-          color: grey ; | 
-      }
+        ```
+        # Bad Code
+        p {
+            color: grey ; | 
+        }
 
 
-      # Good Code
-       p {
-          color: grey ;
-      }
-      ```
+        # Good Code
+        p {
+            color: grey ;
+        }
+        ```
 
 ## ✒️ Author <a name = "author"></a>
 
