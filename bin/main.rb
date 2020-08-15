@@ -1,5 +1,4 @@
 require 'colorize'
-require_relative '../lib/lintrules.rb'
 require_relative '../lib/linter.rb'
 
 file = File.open(ARGV[0]).to_a
