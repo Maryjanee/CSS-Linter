@@ -1,5 +1,5 @@
 require 'colorize'
-require_relative '../lib/linter.rb'
+require_relative '../lib/linter'
 
 file = File.open(ARGV[0]).to_a
 errors = Linter.lintcheck(file)

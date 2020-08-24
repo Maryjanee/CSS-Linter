@@ -1,4 +1,4 @@
-require_relative '../lib/lint_rules.rb'
+require_relative '../lib/lint_rules'
 
 class Linter
   def self.lintcheck(file)
